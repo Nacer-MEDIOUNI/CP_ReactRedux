@@ -1,35 +1,37 @@
-import { useSelector } from "react-redux";
 import Task from "./Task";
 
-const TaskList = ({ filter }) => {
-  const todos = useSelector((state) => state.todos);
+const TaskList = ({ tasks, filter }) => {
+ 
 
   return (
     <>
-      {todos.length > 0 ? (
+      {tasks.length > 0 ? (
         <div>
           {filter === "done"
-            ? todos
+            ? tasks
                 .filter((todo) => todo.done === true)
                 .map((todo) => (
                   <Task
+                    task={todo}
                     id={todo.id}
                     description={todo.description}
                     done={todo.done}
                   />
                 ))
             : filter === "undone"
-            ? todos
+            ? tasks
                 .filter((todo) => todo.done === false)
                 .map((todo) => (
                   <Task
+                    task={todo}
                     id={todo.id}
                     description={todo.description}
                     done={todo.done}
                   />
                 ))
-            : todos.map((todo) => (
+            : tasks.map((todo) => (
                 <Task
+                  task={todo}
                   id={todo.id}
                   description={todo.description}
                   done={todo.done}

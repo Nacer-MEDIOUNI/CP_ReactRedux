@@ -74,19 +74,38 @@ body {
 }
 
 .task {
+  width: 100%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   background: #f4f4f4;
   margin: 5px;
   padding: 10px 20px;
   align-items: center;
 }
-span {
-  justify-content: flex-start;
-  align-items: flex-start;
+
+p {
+  overflow-wrap: anywhere;
+  width: 60%;
 }
 .task-btn {
-  align-items: flex-end;
+  display: flex;
+  justify-content: space-around;
+  width: 30%;
+  align-items: center;
+  margin-right: 4px;
 }
 
-
+/* BASIC BLOCK STYLES */
+.block {
+  display: flex;
+  align-items: center;
+  color: var(--block-text-color);
+  border: 3px solid var(--block-text-color);
+  border-radius: 3px;
+  padding: 4px 8px;
+  background: var(--block-background-color);
+  font-weight: bold;
+  cursor: pointer;
+  box-sizing: border-box;
+}

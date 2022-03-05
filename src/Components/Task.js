@@ -1,8 +1,9 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { deleteTodo, doneTodo } from "../JS/Actions/actions";
+import Edit from "./Edit";
 
-const Task = ({ id, description, done }) => {
+const Task = ({ task, id, description, done }) => {
   const dispatch = useDispatch();
 
   const styles = {
@@ -16,14 +17,16 @@ const Task = ({ id, description, done }) => {
     dispatch(doneTodo(id));
   };
   return (
-    <div className="task">
-      <span style={styles}>{description}</span>
+    <div class="task">
+      <p style={styles}>{description}</p>
+
       <div className="task-btn">
-        <button className="btn" onClick={handleDelete}>
-          Delete
+        <Edit task={task} />
+        <button class="block" onClick={handleDelete}>
+          ⛔
         </button>
-        <button className="btn" onClick={handleDone}>
-          {done ? "undone" : "done"}
+        <button className="block" onClick={handleDone}>
+          {done ? "👏" : "✔"}
         </button>
       </div>
     </div>

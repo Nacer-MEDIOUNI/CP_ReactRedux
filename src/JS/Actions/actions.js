@@ -1,8 +1,4 @@
-import {
-  ADD_TODO,
-  DELETE_TODO,
-  DONE_TODO,
-} from "../Constants/action-types";
+import { ADD_TODO, DELETE_TODO, DONE_TODO, EDIT_TODO } from "../Constants/action-types";
 
 let todoId = 0;
 
@@ -20,9 +16,15 @@ export const deleteTodo = (id) => {
   };
 };
 
-export const doneTodo = (id) => {
+export const doneTodo = (payload) => {
   return {
     type: DONE_TODO,
-    payload: id,
+    payload,
+  };}
+  
+export const editTodo = (id, newDescription) => {
+  return {
+    type: EDIT_TODO,
+    payload: { id, newDescription },
   };
 };

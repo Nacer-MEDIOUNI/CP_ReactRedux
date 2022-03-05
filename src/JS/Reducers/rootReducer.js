@@ -1,9 +1,14 @@
-import { ADD_TODO, DELETE_TODO, DONE_TODO } from "../Constants/action-types";
+import {
+  ADD_TODO,
+  DELETE_TODO,
+  DONE_TODO,
+  EDIT_TODO,
+} from "../Constants/action-types";
 
 const initialState = {
   todos: [
     {
-      id: 0,
+      id: Math.random(),
       description: "Task by default",
       done: false,
     },
@@ -15,15 +20,7 @@ const rootReducer = (state = initialState, action) => {
     case ADD_TODO:
       return {
         ...state,
-        todos: [
-          ...state.todos,
-          {
-            id: action.payload.id,
-            title: action.payload.title,
-            description: action.payload.description,
-            done: false,
-          },
-        ],
+        todos: [...state.todos, action.payload],
       };
 
     case DELETE_TODO:
@@ -40,6 +37,16 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         todos: state.todos.map((todo) =>
           todo.id === action.payload ? { ...todo, done: !todo.done } : todo
+        ),
+      };
+
+    case EDIT_TODO:
+      return {
+        ...state,
+        todos: state.todos.map((todo) =>
+          todo.id === action.payload.id
+            ? { ...todo, description: action.payload.newDescription }
+            : todo
         ),
       };
 
