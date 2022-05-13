@@ -42,6 +42,7 @@ const Edit = ({ task }) => {
         Edit
       </button>
       <Modal
+        key={task.id}
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"

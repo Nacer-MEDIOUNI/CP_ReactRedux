@@ -23,11 +23,11 @@ const AddTask = ({ setFilter }) => {
             onChange={inputChange}
             value={input}
             type="text"
-            placeholder="Add todos..."
+            placeholder="Enter your todo ..."
             required
           />
-          <button className="input-btn" type="submit">
-            Add Todo
+          <button class="block"  type="submit">
+            Add
           </button>
         </div>
         <select

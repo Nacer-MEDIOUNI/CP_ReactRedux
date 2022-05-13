@@ -15,7 +15,7 @@ body {
   margin: 30px auto;
   overflow: auto;
   min-height: 300px;
-  border: 1px solid steelblue;
+  border: 1px solid aquamarine;
   padding: 30px;
   border-radius: 5px;
 }
@@ -57,6 +57,7 @@ body {
 
 .input-control {
   display: flex;
+  align-items: center;
 }
 
 .input-btn {
@@ -91,9 +92,11 @@ p {
 .task-btn {
   display: flex;
   justify-content: space-around;
-  width: 30%;
   align-items: center;
-  margin-right: 4px;
+  margin: auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
 }
 
 /* BASIC BLOCK STYLES */
